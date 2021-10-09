@@ -1,0 +1,12 @@
+.mom{
+    background-color: wheat;
+    font-size: 16px;
+    font-family: 'Ubuntu', sans-serif;
+    font-style: italic;
+}
+li{
+    
+        list-style: none; 
+        margin-left: 10px;
+     }
+
