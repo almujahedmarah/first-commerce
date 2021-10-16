@@ -4,10 +4,9 @@
       
          <link rel="stylesheet" href="cart.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
       </head>
-    <body>
+    <body onload="gettotal()">
       <div class="mom">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -23,47 +22,60 @@
               </div>
             </div>
           </nav>
-          <div class="card mb-3">
-            <img src="images/bag.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">the cart shop is empty</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-             
-            </div>
+          <div id="addto">
+
+
           </div>
         
 
-          <form action="/action_page.php">
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname" value="name"><br>
-            <label for="lname">email:</label><br>
-            <input type="email" id="lname" name="lname" value="email@"><br><br>
+          <form>
+            <label for="coupon">enter the coupon:</label><br>
+            <input type="text" id="coupon">
+            <input onclick="gettotal()" type="button" value="apply">
           </form>
 
           
           <form>
-            <h6>what is your gender?</h6>
-            <label>male</label>
-            <input type="radio" name="a">
-            <label>female</label>
-            <input type="radio" name="a">
+            <h6>delivery option:</h6>
+            <label>collection</label>
+            <input onclick="gettotal()" type="radio" name="a" id="coll">
+            <label>delivery</label>
+            <input onclick="gettotal()"  type="radio" name="a" id="del">
           </form>
-           <form>
-            <input type="submit" value="Submit">
-           </form>
+         <!-- ---------------------------------------------  -->
+         
+        <ul class="list-group">
+          <li class="list-group-item"> subtotal:<span id="subtotal"></span></li>
+          <li class="list-group-item">delivery:<span id="delivery"></span></li>
+          <li class="list-group-item">discount:<span id="discount"></span> </li>
+          <li class="list-group-item">tax:<span id="tax"></span></li>
+          <li class="list-group-item">total:<span id="total"></span></li>
+        </ul>
+        <!-- Button trigger modal -->
+<button onclick="getRandomString(5)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+checkout
+</button>
 
-        
-          <table class="table">
-            <h5>conact us</h5>
-            <tr>
-              <th>email</th>
-            <th>number</th>
-            </tr>
-            <tr>
-              <td>nimsh@dgfdsv.com</td>
-              <td>0934254546</td>
-            </tr>
-          </table>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">checkout</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div  id="code" class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="clearCart()" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+         
           
           <nav aria-label="Page navigation example">
             <ul class="pagination">
@@ -84,5 +96,10 @@
           </nav>
 
         </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="cart.js"></script>
+
     </body>
 </html> 
